@@ -1,7 +1,7 @@
-FROM python:2
+FROM python:2-alpine
 
-LABEL maintainer="milonas.ko@gmail.com"
-
-RUN pip install --no-cache-dir rabbitmq-alert
+COPY . /app
+WORKDIR /app
+RUN python setup.py install
 
 CMD ["rabbitmq-alert"]
